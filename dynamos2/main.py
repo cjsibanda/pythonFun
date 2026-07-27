@@ -1,7 +1,6 @@
 """
 ------------------------------------------------------------
 Sorting Algorithms
-Author: CJ
 --> demonstrating four important algorithms:
 1. Merge Sort
 2. Merge Function
