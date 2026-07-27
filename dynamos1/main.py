@@ -1,18 +1,12 @@
 """
 --------------------------------------------------------
-Author: CJ
-
 Testing concepts:
 --> Recursion
 --> Binary Search
 --> Selection Sort
 --> Merge (used in Merge Sort)
-
-understand HOW each algorithm works
 --------------------------------------------------------
 """
-
-
 # ======================================================
 # RECURSION
 # ======================================================
@@ -20,7 +14,6 @@ understand HOW each algorithm works
 def factorial(n):
     """
     Calculates n! using recursion.
-
     Every recursive function has TWO important parts:
 
     1. Base Case
@@ -32,7 +25,6 @@ def factorial(n):
 
     Example:
         factorial(4)
-
         = 4 * factorial(3)
         = 4 * 3 * factorial(2)
         = 4 * 3 * 2 * factorial(1)
@@ -56,7 +48,6 @@ print("========== RECURSION ==========")
 print("Factorial of 5 =", factorial(5))
 print()
 
-
 # ======================================================
 # BINARY SEARCH
 # ======================================================
@@ -64,49 +55,33 @@ print()
 def binary_search(numbers, target):
     """
     Binary Search ONLY works on a sorted list.
-
     Instead of checking every element,
     it repeatedly cuts the search space in half.
-
     Time Complexity:
         O(log n)
-
     faster than checking every element.
     """
-
     low = 0
     high = len(numbers) - 1
-
     while low <= high:
-
         # Find the middle index
         middle = (low + high) // 2
-
         print(f"Checking index {middle} (value = {numbers[middle]})")
-
         if numbers[middle] == target:
             return middle
-
         elif target < numbers[middle]:
             # Target must be in the LEFT half
             high = middle - 1
-
         else:
             # Target must be in the RIGHT half
             low = middle + 1
-
     return -1
 
-
 print("========== BINARY SEARCH ==========")
-
 sorted_numbers = [2, 5, 7, 9, 13, 18, 21, 27]
-
 index = binary_search(sorted_numbers, 18)
-
 print("18 found at index:", index)
 print()
-
 
 # ======================================================
 # SELECTION SORT
@@ -117,15 +92,11 @@ def selection_sort(numbers):
     Selection Sort repeatedly finds the smallest
     remaining value and places it into its correct
     position.
-
     NOTE:
-
     While searching,
     NOTHING moves.
-
     We simply remember the location of the
     smallest value.
-
     Only ONE swap happens after each pass.
 
     Time Complexity:
@@ -154,16 +125,12 @@ def selection_sort(numbers):
 
 
 print("========== SELECTION SORT ==========")
-
 values = [8, 3, 6, 1, 9]
-
 print("Original List:", values)
 
 selection_sort(values)
-
 print("Sorted List:", values)
 print()
-
 
 # ======================================================
 # MERGE
@@ -175,13 +142,10 @@ def merge(left, right):
     into ONE sorted list.
 
     Example:
-
     Left:
         [2, 5, 8]
-
     Right:
         [1, 4, 9]
-
     Result:
         [1, 2, 4, 5, 8, 9]
 
@@ -193,18 +157,14 @@ def merge(left, right):
 
     left_index = 0
     right_index = 0
-
     # Compare the first unused value
     # from each list.
     while left_index < len(left) and right_index < len(right):
 
         if left[left_index] <= right[right_index]:
-
             merged.append(left[left_index])
             left_index += 1
-
         else:
-
             merged.append(right[right_index])
             right_index += 1
 
@@ -230,9 +190,7 @@ right = [1, 4, 9]
 
 print("Left List :", left)
 print("Right List:", right)
-
 merged = merge(left, right)
-
 print("Merged List:", merged)
 
 print()
