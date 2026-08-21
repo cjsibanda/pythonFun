@@ -1,6 +1,5 @@
 # ============================================================
 # Linked Lists in Python
-#
 # Concepts:
 # - Nodes
 # - Simple chain of objects
@@ -57,7 +56,6 @@ class LinkedList:
 
 # ============================================================
 # STACK
-#
 # Stack is a linked list where:
 # - push adds to head
 # - pop removes from head
