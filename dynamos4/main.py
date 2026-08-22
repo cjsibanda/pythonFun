@@ -65,13 +65,144 @@ def product_sereis_iter(n: int) -> int:
         total += (k - 1) * k
     return total
 
+#----------------------------------------------------
+# Functions 3: Character Frequency Counter
+# Counts how many occurences of 'a' (case-sensitive) in a string
+#------------------------------------------------------
+# Recursive
+# Process head char s[0], recursive on tail s[1:].
+# Base case: Empty string returns 0
+def count_a_rec(s: str) -> int:
+    if not s:
+        return 0
+    match = 1 if s[0] == 'a' else 0
+    return match + count_a_rec(s[1:])
+
+# Iterative 
+# Traverse sequence without string slicing memory overload
+def cout_a_iter(s: str) -> int:
+    count = 0
+    for char in s:
+        if char == 'a':
+            count += 1
+    return count
+
+#----------------------------------------------------------
+# Functions 4: Float Array summation
+# Receives array of doubles as parameter and calculates
+# ... the sum of the elements in array
+#------------------------------------------------------------
+# Recursive
+# Divide-and-conquer using array index tracking
+def sum_array_rec(arr: list[float], idx: int = 0) -> float:
+    if idx >= len(arr):
+        return 0.0
+    return arr[idx] + sum_array_rec(arr, idx + 1)
+
+# Iterative
+# Sequential accumulation across dynamic array
+def sum_array_iter(arr: list[float]) -> float:
+    total = 0.0
+    for val in arr:
+        total += val
+    return total
+
+#--------------------------------------------
+# Functions 5: Even Number counter
+# Receives an array of integers and returns h
+# the total of even numbers in the array
+#-------------------------------------------
+# Recursive 
+def count_evens_rec(arr: list[int], idx: int = 0) -> int:
+    if idx >= len(arr):
+        return 0
+    is_even = 1 if (arr[idx] % 2 == 0) else 0
+    return is_even + count_evens_rec(arr, idx + 1)
+
+# Iterative
+# Single pass counter loop over linera input
+def count_evens_iter(arr: list[int]) -> int:
+    count = 0
+    for val in arr:
+        if val % 2 == 0:
+            count += 1
+    return count
+
+
+#---------------------------------------------
+# Functions 6: Space Replacement
+# Receives string as parameter and replaces spaces (' ')
+# with dots ('.')
+#--------------------------------------------------
+# Recursive 
+def replace_spaces_rec(s: str) -> str:
+    if not s:
+        return ""
+    head = '.' if s[0] == ' ' else s[0]
+    return head + replace_spaces_rec(s[1:])
+
+
+# Iterative 
+# Collects transformed characters into the list
+def replace_spaces_iter(s: str) -> str:
+    char = []
+    for char in s:
+        chars.append('.' if char == ' ' else char)
+    return "".join(chars)
+
+#----------------------------------------------
+# Functions 7: In-Place Absolute Value Transformer
+# Replaces the negative float element in array
+# ... with the absolute value
+#------------------------------------------------
+# Recursive
+# Mutates array element at index, recurses to next idex
+def abs_array_rec(arr: list[float], idx: int = 0) -> None:
+    if idx >= len(arr):
+        return
+    if arr[idx] < 0:
+        arr[idx] = abs(arr[idx])
+    abs_array_rec(arr, idx + 1)
+
+# Iterative 
+def abs_array_iter(arr: list[float]) -> None:
+    for i in range(len(arr)):
+        if arr[i] < 0:
+            arr[i] = abs(arr[i])
+
+
+#-------------------------------------------------
+# Functions 8: Division by 2 counter
+# counts how many times n is evenly divisible by 2
+#-------------------------------------------------
+# Recursive
+# Divide input by 2 repeatedly until ...
+def count_div_by_two_rec(n: int) -> int:
+    if n == 0 or n % 2 != 0:
+        return 0
+    return 1 + count_div_by_two_rec(n // 2)
+
+# Iterative 
+# While loop updates state n until division condition breaks
+def count_div_by_two(n: int) -> int:
+    count = 0
+    while n != 0 and n % 2 == 0:
+        count += 1
+        n //= 2
+    return count
+
+
 ####################################
 # - Tests ....
 #####################################
+def run_tests():
+    iterations = 5000
+    print("Try this........")
+    print("=" * 60)
 
 # Test Data Setup
 n_val = 500
-sample_str = "this is a comp sci alsogithms test string"
+sample_str = "this is a comp sci algorithms test string"
 sample_floats = [-1.5, 2.3, -4.2, 5.0, -9.8, 12.1, -15.4, 20.0] * 10
 sample_ints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] * 10
 div_val = 2**20
@@ -80,5 +211,11 @@ div_val = 2**20
 print("Sample Executions & function ouputs...")
 print("=" * 50)
 
-#1. Series Sum
+# 1. Series Sum
 print("1. Series Sum (N=6):", series_sum_rec(6))
+
+# 2. Product Series
+print("2. Product Series (N=4):", product_series_rec(4))
+
+# 3 Count 'a'
+
