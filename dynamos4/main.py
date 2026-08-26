@@ -242,7 +242,17 @@ sample_floats = [-1.5, 2.3, -4.2, 5.0, -9.8, 12.1, -15.4, 20.0] * 10
 sample_ints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] * 10
 div_val = 2**20
 
-# 
+# Test helper (timing -- what's faster)
+def time_func(fn, *args):
+    start = time.perf_couter()
+    for _ in range(iterations):
+        fn(*args)
+    end = time.perf_counter()
+    return (end - start) * 1000.0 # in ms
+
+# to execute and Format tests later...
+
+
 
 #.. continue
 print("Sample Executions & function ouputs...")
