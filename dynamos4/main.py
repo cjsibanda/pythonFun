@@ -251,7 +251,14 @@ def time_func(fn, *args):
     return (end - start) * 1000.0 # in ms
 
 # to execute and Format tests later...
-
+tests = [
+    ("1. Series Sum (N=500)", series_sum_rec, series_sum_iter, (n_val,)),
+    ("2. Product Series (N=500)", product_series_rec, product_series_iter, (n_val,)),
+    ("3. Count 'a' in string", count_a_rec, count_a_iter, (sample_str,)),
+    ("4. Sum float array", sum_array_rec, sum_array_iter, (sample_floats,)),
+    ("5. Count evens in array", count_evens_rec, count_evens_iter, (sample_ints,)),
+    #....
+]
 
 
 #.. continue
