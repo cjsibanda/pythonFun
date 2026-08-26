@@ -59,7 +59,7 @@ def product_series_rec(n: int) -> int:
 
 # Iterative 
 # Loops from k=1 up to n accumulating (k-1)*k
-def product_sereis_iter(n: int) -> int:
+def product_series_iter(n: int) -> int:
     total = 0
     for k in range(1, n + 1):
         total += (k - 1) * k
@@ -184,12 +184,34 @@ def count_div_by_two_rec(n: int) -> int:
 
 # Iterative 
 # While loop updates state n until division condition breaks
-def count_div_by_two(n: int) -> int:
+def count_div_by_two_iter(n: int) -> int:
     count = 0
     while n != 0 and n % 2 == 0:
         count += 1
         n //= 2
     return count
+
+
+#----------------------------------------------------
+# Functions 9: PRint Array Items Seperated by comma
+# PRints elements to standard output seperated by ','
+#-----------------------------------------------------
+# Recursive
+def print_array_rec(arr: list[int], idx: int = 0) -> None:
+    if idx >= len(arr):
+        return
+    sep = ", " if idx < len(arr) - 1 else ""
+    print(f"{arr[idx]}{sep}", end="")
+    print_arry_rec(arr, idx + 1)
+
+# Iterative
+def print_array_iter(arr: list[int]) -> None:
+    for i in range(len(arr)):
+        sep = ", " if i < len(arr) - 1 else ""
+        print(f{arr[i]}{sep}, end="")
+
+
+
 
 
 ####################################
