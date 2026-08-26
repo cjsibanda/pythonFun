@@ -211,8 +211,21 @@ def print_array_iter(arr: list[int]) -> None:
         print(f{arr[i]}{sep}, end="")
 
 
+#-------------------------------------------------------------
+# Functions 10: Format Array into Comma-Seperated String
+# Returns formated string containing comma-seperated elements
+#--------------------------------------------------------------
+# Recursive
+def array_to_string_rec(arr: list[int], idx: int = 0) -> str:
+    if idx >= len(arr):
+        return ""
+    if idx = len(arr) - 1:
+        return str(arr[idx])
+    return str(arr[idx]) + ", " + array_to_string_rec(arr, idx + 1)
 
-
+# Iterative
+def array_to_string_iter(arr: list[int]) -> str:
+    return ", ".join(str(x) for x in arr) 
 
 ####################################
 # - Tests ....
@@ -228,6 +241,8 @@ sample_str = "this is a comp sci algorithms test string"
 sample_floats = [-1.5, 2.3, -4.2, 5.0, -9.8, 12.1, -15.4, 20.0] * 10
 sample_ints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] * 10
 div_val = 2**20
+
+# 
 
 #.. continue
 print("Sample Executions & function ouputs...")
