@@ -271,5 +271,20 @@ print("1. Series Sum (N=6):", series_sum_rec(6))
 # 2. Product Series
 print("2. Product Series (N=4):", product_series_rec(4))
 
-# 3 Count 'a'
+# 3. Count 'a'
+st = "data structures and algorithms"
+print(f"3. Count 'a' in '{st}' :", count_a_rec(st))
+
+# 4. Array sum
+flts = [1.5, 2.5, 3.0]
+print("4. Floats Array Sum:", sum_array_rec(flts))
+
+# 5. Count Evens
+ints = [1, 2, 3, 4, 5, 6]
+print("5. Count Evens:", count_evens_rec(ints))
+
+# 6. Replace spaces
+print("6. Replace Species:", replace_spaces_rec("a b c"))
+
+# 7. Absolute Values...
 
