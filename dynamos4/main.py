@@ -194,7 +194,7 @@ def count_div_by_two_iter(n: int) -> int:
 
 #----------------------------------------------------
 # Functions 9: PRint Array Items Seperated by comma
-# PRints elements to standard output seperated by ','
+# Prints elements to standard output seperated by ','
 #-----------------------------------------------------
 # Recursive
 def print_array_rec(arr: list[int], idx: int = 0) -> None:
@@ -257,9 +257,23 @@ tests = [
     ("3. Count 'a' in string", count_a_rec, count_a_iter, (sample_str,)),
     ("4. Sum float array", sum_array_rec, sum_array_iter, (sample_floats,)),
     ("5. Count evens in array", count_evens_rec, count_evens_iter, (sample_ints,)),
-    #....
+    ("6. Replace spaces with '.'", replace_spaces_rec, replace_spaces_iter, (sample_str,)),
+    ("7. Abs float array", lambda a: abs_array_rec(a.copy()), lambda a: abs_array_iter(a.copy()), (sample_floats,)),
+    ("8. Divisible by 2 count", count_div_by_two_rec, count_div_by_two_iter, (div_val,)),
+    ("10. Array to string", array_to_string_rec, array_to_string_iter, (sample_ints,)),
 ]
 
+print(f"{'Task':<28} | {'Recursive (ms)':<14} | {'Iterative (ms)':<14} | {'Speedup':<10}")
+print("-" * 72)
+
+for name, rec_f, iter_f, args in tests:
+    t_rec = time_func(rec_f, *args)
+    t_iter = time_func(iter_f, *args)
+    speedup = f"{t_rec / t_iter:.2f}x" if t_iter > 0 else "N/A"
+    print(f"{name:<28} | {t_rec:<14.2f} | {t_iter:<14.2f} | {speedup:<10}")
+
+if __name__ == "__main__":
+    
 
 #.. continue
 print("Sample Executions & function ouputs...")
@@ -287,4 +301,29 @@ print("5. Count Evens:", count_evens_rec(ints))
 print("6. Replace Species:", replace_spaces_rec("a b c"))
 
 # 7. Absolute Values...
+neg_flts = [-1.5, 2.0, -3.5]
+abs_array_rec(neg_flts)
+print("7. Abs Array (mutated):", neg_flts)
+
+# 8. Divisible by 2
+print("8. Divisble by 2 count for 64:", count_div_by_two_rec(64))
+
+# 9. Print Array directly
+print("9. Print Array Rec: ", ends="")
+print_array_rec([10, 20, 30])
+print()
+
+# 10. Array to String
+print("10. Array to String Rec:", array_to_string_rec([100, 200, 300]))
+
+print("\n")
+run_tests()
+
+
+
+
+
+
+
+
 
