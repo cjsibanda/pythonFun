@@ -227,6 +227,49 @@ def array_to_string_rec(arr: list[int], idx: int = 0) -> str:
 def array_to_string_iter(arr: list[int]) -> str:
     return ", ".join(str(x) for x in arr) 
 
+#-----------------------------------------------------------
+# Extra: Rock Paper Scissors
+# Recieves two arguments
+# returns true if player 1 wins, false otherwise
+#-----------------------------------------------------------
+def wins_rock_paper_scissors(arg_1, arg_2):
+    p1 = lower(arg_1)
+    p2 = lower(arg_2)
+
+    if p1 == 'rock' and p2 == 'scissors':
+        return True 
+    elif p1 == 'paper' and p2 == "rock":
+        retrun True
+    elif p1 == 'scissors' and p2 == 'paper':
+        return True
+    else:
+        return False 
+
+
+#--------------------------------------------------------
+# Extra : factorial
+# accept number and return result of factorial (Python)
+#
+#-----------------------------------------------------
+def factorial(number):
+    temporary = number
+    result = 1
+
+    while temp > 0:
+        if result == 1:
+            result = temporary
+        else:
+            result = result * temporary
+            temporary = temporary - 1
+            
+    return result
+
+
+
+
+
+    
+
 ####################################
 # - Tests ....
 #####################################
